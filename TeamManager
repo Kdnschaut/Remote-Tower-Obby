@@ -1,0 +1,25 @@
+-- Player start
+local player = game.Players.LocalPlayer
+
+-- Admin list (use the actual usernames as strings)
+local Admins = {"iwzro12", "ilovedrinkjuice"}  -- Add both usernames here
+
+-- Team start
+local StarterTeam = game.Teams["Level 1"]
+local AdminTeam = game.Teams.Admin
+
+-- Check if the player is in the Admins list
+local isAdmin = false
+for _, adminName in pairs(Admins) do
+    if player.Name == adminName then
+        isAdmin = true
+        break
+    end
+end
+
+-- Assign the player to the appropriate team
+if isAdmin then
+    player.Team = AdminTeam
+else
+    player.Team = StarterTeam
+end
