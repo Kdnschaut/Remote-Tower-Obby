@@ -2,8 +2,8 @@
 local Players = game:GetService("Players")
 local Teams = game:GetService("Teams")
 
--- Admin list (use the actual usernames as strings)
-local Admins = {"iwzro12", "ilovedrinkjuice"}  -- Add both usernames here
+-- Admin list (use the actual UserIDs as numbers)
+local Admins = {3720900160, 1708138976}  -- Add UserIDs here
 
 -- Team start
 local StarterTeam = Teams["Level 1"]
@@ -11,8 +11,8 @@ local AdminTeam = Teams.Admin
 
 -- Function to check if a player is in the Admins list
 local function isPlayerAdmin(player)
-    for _, adminName in pairs(Admins) do
-        if player.Name == adminName then
+    for _, adminID in pairs(Admins) do
+        if player.UserId == adminID then
             return true
         end
     end
@@ -28,3 +28,4 @@ Players.PlayerAdded:Connect(function(player)
         player.Team = StarterTeam
     end
 end)
+
