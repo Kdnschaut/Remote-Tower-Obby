@@ -21,11 +21,19 @@ end
 
 -- Connect to the PlayerAdded event
 Players.PlayerAdded:Connect(function(player)
+    print("Player joined: " .. player.Name)
+    print("Player's UserID: " .. player.UserId)
+    print("Admins list:")
+    for _, adminID in pairs(Admins) do
+        print(adminID)
+    end
+
     -- Check if the player is in the Admins list
     if isPlayerAdmin(player) then
+        print("Player is an admin.")
         player.Team = AdminTeam
     else
+        print("Player is not an admin.")
         player.Team = StarterTeam
     end
 end)
-
